@@ -1,0 +1,51 @@
+{
+  "app": {
+    "title": "Cozy Todo Delight"
+  },
+  "tasks": {
+    "myTasks": "My Tasks",
+    "addTask": "Add Task",
+    "editTask": "Edit Task",
+    "title": "Title",
+    "description": "Description",
+    "category": "Category",
+    "priority": "Priority",
+    "dueDate": "Due Date",
+    "noDate": "No date selected",
+    "noTasks": "No tasks yet",
+    "addFirstTask": "Add your first task by tapping the + button",
+    "enterTitle": "Enter task title",
+    "enterDescription": "Enter task description",
+    "pleaseEnterTitle": "Please enter a title",
+    "taskDeleted": "Task deleted",
+    "undo": "Undo"
+  },
+  "categories": {
+    "all": "All",
+    "personal": "Personal",
+    "work": "Work",
+    "shopping": "Shopping",
+    "health": "Health",
+    "education": "Education",
+    "other": "Other"
+  },
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "actions": {
+    "add": "Add",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search tasks..."
+  },
+  "errors": {
+    "404": "Page not found"
+  },
+  "date": {
+    "format": "{day}/{month}/{year}"
+  }
+}

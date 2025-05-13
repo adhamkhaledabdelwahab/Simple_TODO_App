@@ -1,0 +1,51 @@
+{
+  "app": {
+    "title": "تطبيق المهام المريح"
+  },
+  "tasks": {
+    "myTasks": "مهامي",
+    "addTask": "إضافة مهمة",
+    "editTask": "تعديل المهمة",
+    "title": "العنوان",
+    "description": "الوصف",
+    "category": "التصنيف",
+    "priority": "الأولوية",
+    "dueDate": "تاريخ الاستحقاق",
+    "noDate": "لم يتم تحديد تاريخ",
+    "noTasks": "لا توجد مهام حالياً",
+    "addFirstTask": "أضف مهمتك الأولى بالضغط على زر +",
+    "enterTitle": "أدخل عنوان المهمة",
+    "enterDescription": "أدخل وصف المهمة",
+    "pleaseEnterTitle": "الرجاء إدخال العنوان",
+    "taskDeleted": "تم حذف المهمة",
+    "undo": "تراجع"
+  },
+  "categories": {
+    "all": "الكل",
+    "personal": "شخصي",
+    "work": "عمل",
+    "shopping": "تسوق",
+    "health": "صحة",
+    "education": "تعليم",
+    "other": "أخرى"
+  },
+  "priority": {
+    "low": "منخفضة",
+    "medium": "متوسطة",
+    "high": "عالية"
+  },
+  "actions": {
+    "add": "إضافة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "search": "البحث عن المهام..."
+  },
+  "errors": {
+    "404": "الصفحة غير موجودة"
+  },
+  "date": {
+    "format": "{day}/{month}/{year}"
+  }
+}
