@@ -19,10 +19,7 @@ class TaskItem extends StatelessWidget {
         color: Theme.of(context).colorScheme.error,
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 16.0),
-        child: const Icon(
-          Icons.delete,
-          color: Colors.white,
-        ),
+        child: const Icon(Icons.delete, color: Colors.white),
       ),
       onDismissed: (_) {
         context.read<TaskProvider>().deleteTask(task.id);
@@ -44,7 +41,11 @@ class TaskItem extends StatelessWidget {
           title: Text(
             task.title,
             style: TextStyle(
-              decoration: task.status == TaskStatus.completed ? TextDecoration.lineThrough : null,
+              color: Colors.black,
+              decoration:
+                  task.status == TaskStatus.completed
+                      ? TextDecoration.lineThrough
+                      : null,
             ),
           ),
           subtitle: Column(
@@ -54,33 +55,53 @@ class TaskItem extends StatelessWidget {
                 Text(
                   task.description,
                   style: TextStyle(
-                    decoration: task.status == TaskStatus.completed ? TextDecoration.lineThrough : null,
+                    decoration:
+                        task.status == TaskStatus.completed
+                            ? TextDecoration.lineThrough
+                            : null,
                   ),
                 ),
               const SizedBox(height: 4),
               Consumer<I18n>(
-                builder: (context, i18n, _) => Row(
-                  children: [
-                    Chip(
-                      label: Text(i18n.get('categories.${task.category}')),
-                      backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
-                    ),
-                    if (task.dueDate != null) ...[
-                      const SizedBox(width: 8),
-                      Chip(
-                        label: Text(
-                          task.dueDate != null
-                            ? i18n.get('date.format')
-                                .replaceAll('{day}', task.dueDate!.day.toString())
-                                .replaceAll('{month}', task.dueDate!.month.toString())
-                                .replaceAll('{year}', task.dueDate!.year.toString())
-                            : i18n.get('tasks.noDate'),
+                builder:
+                    (context, i18n, _) => Row(
+                      children: [
+                        Chip(
+                          label: Text(
+                            i18n.get(
+                              'categories.${task.category.name.toLowerCase()}',
+                            ),
+                          ),
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surfaceVariant,
                         ),
-                        backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
-                      ),
-                    ],
-                  ],
-                ),
+                        if (task.dueDate != null) ...[
+                          const SizedBox(width: 8),
+                          Chip(
+                            label: Text(
+                              task.dueDate != null
+                                  ? i18n
+                                      .get('date.format')
+                                      .replaceAll(
+                                        '{day}',
+                                        task.dueDate!.day.toString(),
+                                      )
+                                      .replaceAll(
+                                        '{month}',
+                                        task.dueDate!.month.toString(),
+                                      )
+                                      .replaceAll(
+                                        '{year}',
+                                        task.dueDate!.year.toString(),
+                                      )
+                                  : i18n.get('tasks.noDate'),
+                            ),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.surfaceVariant,
+                          ),
+                        ],
+                      ],
+                    ),
               ),
             ],
           ),

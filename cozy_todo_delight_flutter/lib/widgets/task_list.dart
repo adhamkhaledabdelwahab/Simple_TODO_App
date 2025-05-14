@@ -1,3 +1,4 @@
+import 'package:cozy_todo_delight_flutter/constants/task_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/task_provider.dart';
@@ -11,6 +12,7 @@ class TaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tasks = context.watch<TaskProvider>().tasks;
+    final currentCategory = context.watch<TaskProvider>().currentCategory;
 
     if (tasks.isEmpty) {
       return Center(
@@ -24,30 +26,34 @@ class TaskList extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Consumer<I18n>(
-              builder: (context, i18n, _) => Text(
-                i18n.get('tasks.noTasks'),
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+              builder:
+                  (context, i18n, _) => Text(
+                    i18n.get('tasks.noTasks'),
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
             ),
             const SizedBox(height: 8),
             Consumer<I18n>(
-              builder: (context, i18n, _) => Text(
-                i18n.get('tasks.addFirstTask'),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
-                ),
-              ),
+              builder:
+                  (context, i18n, _) => Text(
+                    i18n.get('tasks.addFirstTask'),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withOpacity(0.6),
+                    ),
+                  ),
             ),
           ],
         ),
       );
     }
-
+    final rTasks = tasks.where((e) => e.category == currentCategory || currentCategory == TaskCategory.all).toList();
     return ListView.builder(
       padding: const EdgeInsets.all(16),
-      itemCount: tasks.length,
+      itemCount: rTasks.length,
       itemBuilder: (context, index) {
-        final task = tasks[index];
+        final task = rTasks[index];
         return GestureDetector(
           onTap: () {
             showDialog(

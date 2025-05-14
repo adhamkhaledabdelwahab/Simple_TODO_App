@@ -83,7 +83,7 @@ class _TaskFormDialogState extends State<TaskFormDialog> {
                   }
                   return null;
                 },
-                onSaved: (value) => _title = value!,
+                onChanged: (value) => _title = value!,
               ),
               const SizedBox(height: 16),
               TextFormField(
@@ -93,7 +93,7 @@ class _TaskFormDialogState extends State<TaskFormDialog> {
                   hintText: context.read<I18n>().get('tasks.enterDescription'),
                 ),
                 maxLines: 3,
-                onSaved: (value) => _description = value!,
+                onChanged: (value) => _description = value!,
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<TaskPriority>(
